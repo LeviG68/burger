@@ -1,3 +1,6 @@
-INSERT INTO burgers (burgers_db) VALUES ('Cheese Burger');
-INSERT INTO burgers (burgers_db) VALUES ('Bacon Mushroom Burger');
-INSERT INTO burgers (burgers_db) VALUES ('Buffalo Burger');
+
+INSERT INTO burgers(burger_name, devoured);
+VALUES ('Cheese Burger', true);
+VALUES ('Mushroom Swiss Burger', true);
+VALUES ('Buffalo Burger', true);
+
