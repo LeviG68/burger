@@ -1,45 +1,59 @@
 
-<div class="heading">
+{{!-- list of burger to eat --}}
+<div class='container-fluid'></div>
   <div class="container">
-     <img src="https://i.imgur.com/EujkzkY.png" alt="Bob's Burger's image" height="300" width="900">
+    <img src="https://aqueous-cove-60500.herokuapp.com/assets/images/BobsBurger_Logo.jpg" class="img-responsive" alt="Responsive image">
   </div>
 
-
-<div class="burgerList">
-  <ul id="burgerList">
-    {{#each burgerData}}
-      {{#unless this.devoured}}
-        <li>
-          {{burger_name}}
-          <button class="devour_it" data-id="{{id}}">Eat Me!</button>
-        </li>  
-      {{/unless}}
-    {{/each}}
-  </ul>
+    {{!-- where to add burgers --}}
+<div class='row'>
+  <div class="col-md-12">
+    <h1>Add a Burger</h1>
+      <form class="create-form" method="POST" action="/burger/create">
+        <div class="form-group">
+          <label for="burger">Burger Name:</label>
+          <input type="text" id="burgerName" name="burger_name"> 
+        </div>
+        <button type="submit">Add Burger</button>
+      </form>
+  </div>
 </div>
 
-<div class="devourList">
-  <ul>
-    {{#each burgerData}}
-      {{#if this.devoured}}
-        <li>
-          {{burger_name}}
-        </li>
-      {{/if}}
-    {{/each}}
-  </ul>
-</div>
-
-<h2>Add a Burger</h2>
-  <form class="create-form" method="POST" action="/burger/create">
-
-    <div class="form-group">
-      <label for="burger">Burger Name:</label>
-      <input type="text" id="burgerName" name="burger_name"> 
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Order Up!</h2>
+      <div id="burgersList">
+        <ol id="burgerList">
+          {{#each burgerData}}
+            {{#unless this.devoured}}
+              <li>
+                {{burger_name}}
+                <button class="devour_it" id="eatMe" data-id="{{id}}">Eat Me!</button>
+              </li>  
+            {{/unless}}
+          {{/each}}
+        </ol>
+      </div>
     </div>
+  
+  
 
-    <button type="submit">Add Burger</button>
-  </form>
+{{!-- list of burgers that have been devoured --}}
+  <div class="col-md-6">
+    <h2>Burgers you eaten!</h2>
+    <div id="devourList">
+      <ol>
+        {{#each burgerData}}
+          {{#if this.devoured}}
+            <li>
+              {{burger_name}}
+            </li>
+          {{/if}}
+        {{/each}}
+      </ol>
+    </div>
+  </div>
+</div>
 
 
 <script>
