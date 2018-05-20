@@ -57,7 +57,7 @@ var orm = {
 
     queryString += " (";
     queryString += cols.toString();
-    queryString += ", devoured) ";
+    queryString += ") ";
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
