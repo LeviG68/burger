@@ -7,8 +7,6 @@
     // body-parser
   var bodyParser = require('body-parser');
 
-  var middleware = require('middleware');
-
   var PORT = process.env.PORT || 8080;
 
 var app = express();
